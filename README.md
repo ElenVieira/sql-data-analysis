@@ -66,3 +66,5 @@ Projetos completos de análise de dados utilizando SQL.
 
 - SQL
 - MySQL
+
+SQL exercises and examples.
