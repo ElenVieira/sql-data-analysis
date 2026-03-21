@@ -27,3 +27,41 @@ select
 from
     ingresso i left join ingresso_compra ic on i.id_ingresso =  ic.fk_id_ingresso 
 where fk_id_compra is null;
+
+
+
+
+
+
+-- full join (união left e right)
+-- right join
+select
+    c.id_compra,
+    i.id_ingresso,
+    i.tipo,
+    ic.quantidade,
+from 
+    ingresso_compra ic right join compra c
+    on c.id_compra = ic.fk_id_compra
+    right join ingresso i
+    on ic.fk_id_ingresso = i.id_ingresso
+    order by id_compra;
+
+union    
+
+-- left    
+select
+    c.id_compra,
+    i.id_ingresso,
+    i.tipo,
+    ic.quantidade,
+from 
+    compra c left join ingresso_compra ic
+    on c.id_compra = ic.fk_id_compra
+    left join ingresso i
+    on ic.fk_id_ingresso =id_ingresso
+    
+order by id_compra;
+
+-- sempre que utilizamos o full join, na segunda execução ele esta comparando 4 tabelas, duas a esquerda e duas a direita
+
